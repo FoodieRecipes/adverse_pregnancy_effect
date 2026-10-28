@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Clinical & Field Questionnaire — Malaria in Pregnancy & Adverse Outcomes (EBM Study)</title>
+  <style>
+    :root {
+      --primary: #0f766e;
+      --primary-dark: #115e59;
+      --primary-light: #ccfbf1;
+      --bg: #f0fdfa;
+      --card-bg: #ffffff;
+      --text: #1e293b;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --danger: #dc2626;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 24px 12px 64px;
+      font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+    .container {
+      max-width: 780px;
+      margin: 0 auto;
+    }
+    .header-card {
+      background: var(--card-bg);
+      border-radius: 10px;
+      border-top: 10px solid var(--primary);
+      padding: 24px 28px;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+      margin-bottom: 18px;
+    }
+    .header-card h1 {
+      margin: 0 0 8px;
+      font-size: 1.45rem;
+      color: #0f172a;
+    }
+    .header-card .subtitle {
+      font-size: 0.92rem;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+    .badge-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+    .badge {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 999px;
+    }
+    .section-banner {
+      background: var(--primary);
+      color: #fff;
+      padding: 12px 20px;
+      border-radius: 8px 8px 0 0;
+      font-weight: 600;
+      font-size: 1rem;
+      margin-top: 24px;
+    }
+    .section-card {
+      background: var(--card-bg);
+      border-radius: 0 0 10px 10px;
+      padding: 20px 24px;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+      margin-bottom: 18px;
+    }
+    .q-group {
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .q-group:last-child {
+      border-bottom: none;
+    }
+    .q-label {
+      display: block;
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin-bottom: 4px;
+    }
+    .q-code {
+      font-family: Consolas, monospace;
+      font-size: 0.8rem;
+      color: var(--primary-dark);
+      background: #f1f5f9;
+      padding: 2px 6px;
+      border-radius: 4px;
+      margin-right: 6px;
+    }
+    .q-help {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    input[type="text"],
+    input[type="number"],
+    select {
+      width: 100%;
+      max-width: 420px;
+      padding: 9px 12px;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      font-size: 0.92rem;
+      background: #fff;
+    }
+    input:focus, select:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 2px rgba(15, 118, 110, 0.15);
+    }
+    .actions-bar {
+      position: sticky;
+      bottom: 12px;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+      margin-top: 24px;
+    }
+    .btn {
+      border: none;
+      border-radius: 6px;
+      padding: 10px 18px;
+      font-size: 0.92rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+    }
+    .btn-primary:hover {
+      background: var(--primary-dark);
+    }
+    .btn-secondary {
+      background: #e2e8f0;
+      color: #1e293b;
+    }
+    .btn-secondary:hover {
+      background: #cbd5e1;
+    }
+    .summary-box {
+      display: none;
+      background: #f8fafc;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin-top: 18px;
+      font-size: 0.88rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header-card">
+      <h1>Clinical &amp; Field Questionnaire: Malaria in Pregnancy &amp; Adverse Outcomes</h1>
+      <div class="subtitle">
+        <strong>Research Title:</strong> <em>A Predictive Model of Adverse Pregnancy Outcomes Among Malaria-Infected Pregnant Women in Resource-Constrained Settings using Explainable Boosting Machine (EBM)</em><br />
+        <strong>Researcher:</strong> Akpan Divine Eteyen (AK22/PHS/CSC/002) — Department of Computer Science, Akwa Ibom State University
+      </div>
+      <div class="badge-bar">
+        <span class="badge">281 Dataset Columns Mapped</span>
+        <span class="badge">Auto-Computes 31 Engineered EBM Features &amp; Targets</span>
+        <span class="badge">Exports EBM-Ready CSV</span>
+      </div>
+    </div>
+
+    <form id="ebmForm">
+      <div id="formSections"></div>
+
+      <div id="summaryBox" class="summary-box"></div>
+
+      <div class="actions-bar">
+        <div>
+          <strong id="recordCountLabel">0 records saved in session</strong>
+          <div style="font-size: 0.78rem; color: var(--muted);">Responses map 1-to-1 to <code>merged_malaria_pregnancy_outcomes_dataset.csv</code></div>
+        </div>
+        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+          <button type="button" class="btn btn-secondary" onclick="addRecordToBatch()">+ Save Respondent to Batch</button>
+          <button type="button" class="btn btn-primary" onclick="exportToCSV()">Download CSV (281 Columns)</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    const YES_NO = [["0", "0 = No"], ["1", "1 = Yes"]];
+    const YES_NO_DK = [["0", "0 = No"], ["1", "1 = Yes"], ["8", "8 = Don't know"]];
+    const AGREE_DK = [["0", "0 = Disagree"], ["1", "1 = Agree"], ["8", "8 = Don't know"]];
+
+    const SECTIONS = [
+      {
+        title: "SECTION A: Identification, Geographic Location & Survey Metadata",
+        fields: [
+          { code: "caseid", name: "woman_case_id", label: "A1. Respondent / Patient Unique ID", type: "text", default: "AK22-0001" },
+          { code: "pidx", name: "pregnancy_column_index", label: "A2. Pregnancy Episode Index (1 = Most recent)", type: "number", default: "1" },
+          { code: "pidxb", name: "index_to_birth_history", label: "A3. Live Birth History Index (0 if non-live termination)", type: "number", default: "1" },
+          { code: "v001", name: "cluster_number", label: "A4. Community / Health Facility Cluster Number", type: "number", default: "1" },
+          { code: "v002", name: "household_number", label: "A5. Household Number", type: "number", default: "1" },
+          { code: "v003", name: "respondent_line_number", label: "A6. Woman's Line Number in Household", type: "number", default: "1" },
+          { code: "p16", name: "child_line_number_in_household", label: "A7. Child's Line Number in Household (0 if deceased/not in HH)", type: "number", default: "1" },
+          { code: "v005", name: "womens_sample_weight", label: "A8. Sample Weight (1000000 for clinical data)", type: "number", default: "1000000" },
+          { code: "v006", name: "interview_month", label: "A9. Month of Interview (1=Jan .. 12=Dec)", type: "number", default: "10" },
+          { code: "v007", name: "interview_year", label: "A10. Year of Interview", type: "number", default: "2026" },
+          { code: "v024", name: "geopolitical_zone", label: "A12. Geopolitical Zone", type: "select", default: "5", options: [
+            ["1", "1 = North Central"], ["2", "2 = North East"], ["3", "3 = North West"],
+            ["4", "4 = South East"], ["5", "5 = South South (Study Focus)"], ["6", "6 = South West"]
+          ]},
+          { code: "sstate", name: "state_code", label: "A13. State of Residence", type: "select", default: "30", options: [
+            ["30", "30 = Akwa Ibom"], ["29", "29 = Cross River"], ["33", "33 = Rivers"], ["34", "34 = Bayelsa"],
+            ["35", "35 = Delta"], ["25", "25 = Edo"], ["14", "14 = FCT Abuja"], ["36", "36 = Lagos"], ["10", "10 = Kano"]
+          ]},
+          { code: "v025", name: "residence_urban_rural", label: "A14. Type of Place of Residence", type: "select", default: "2", options: [["1", "1 = Urban"], ["2", "2 = Rural"]] },
+          { code: "v040", name: "cluster_altitude_meters", label: "A15. Cluster Altitude (meters)", type: "number", default: "45" }
+        ]
+      },
+      {
+        title: "SECTION B: Maternal Socio-Demographic Characteristics",
+        fields: [
+          { code: "v012", name: "maternal_age_years", label: "B1. Maternal Age in Completed Years (15–49)", type: "number", default: "26" },
+          { code: "v013", name: "maternal_age_group_5yr", label: "B2. Maternal Age Group", type: "select", default: "3", options: [
+            ["1", "1 = 15-19"], ["2", "2 = 20-24"], ["3", "3 = 25-29"], ["4", "4 = 30-34"], ["5", "5 = 35-39"], ["6", "6 = 40-44"], ["7", "7 = 45-49"]
+          ]},
+          { code: "v106", name: "maternal_education_level", label: "B3. Highest Level of School Attended", type: "select", default: "2", options: [
+            ["0", "0 = No education"], ["1", "1 = Primary"], ["2", "2 = Secondary"], ["3", "3 = Higher (Tertiary)"]
+          ]},
+          { code: "v133", name: "maternal_education_years", label: "B4. Completed Years of Formal Education", type: "number", default: "12" },
+          { code: "v155", name: "maternal_literacy", label: "B5. Literacy Level", type: "select", default: "2", options: [
+            ["0", "0 = Cannot read at all"], ["1", "1 = Able to read only parts of sentence"], ["2", "2 = Able to read whole sentence"]
+          ]},
+          { code: "v130", name: "religion", label: "B6. Religion", type: "select", default: "2", options: [
+            ["1", "1 = Catholic"], ["2", "2 = Other Christian"], ["3", "3 = Islam"], ["4", "4 = Traditionalist"], ["96", "96 = Other"]
+          ]},
+          { code: "v131", name: "ethnicity", label: "B7. Ethnicity Code", type: "number", default: "1" },
+          { code: "v501", name: "marital_status_detailed", label: "B8. Current Marital Status", type: "select", default: "1", options: [
+            ["0", "0 = Never in union"], ["1", "1 = Married"], ["2", "2 = Living with partner"], ["3", "3 = Widowed"], ["4", "4 = Divorced"], ["5", "5 = Separated"]
+          ]},
+          { code: "v502", name: "marital_union_status", label: "B9. Grouped Marital Union Status", type: "select", default: "1", options: [
+            ["0", "0 = Never in union"], ["1", "1 = Currently in union"], ["2", "2 = Formerly in union"]
+          ]},
+          { code: "v511", name: "age_at_first_cohabitation", label: "B10. Age at First Cohabitation/Marriage", type: "number", default: "20" },
+          { code: "hv219", name: "sex_of_head_of_household", label: "B11. Sex of Head of Household", type: "select", default: "1", options: [["1", "1 = Male"], ["2", "2 = Female"]] },
+          { code: "hv220", name: "age_of_head_of_household", label: "B12. Age of Head of Household", type: "number", default: "35" }
+        ]
+      },
+      {
+        title: "SECTION C: Socioeconomic Status, Autonomy, Media Exposure & Food Security",
+        fields: [
+          { code: "v190", name: "wealth_index_quintile", label: "C1. Household Wealth Index Quintile", type: "select", default: "2", options: [
+            ["1", "1 = Poorest"], ["2", "2 = Poorer"], ["3", "3 = Middle"], ["4", "4 = Richer"], ["5", "5 = Richest"]
+          ]},
+          { code: "v714", name: "maternal_currently_working", label: "C4. Currently Working?", type: "select", default: "1", options: YES_NO },
+          { code: "v717", name: "maternal_occupation_group", label: "C5. Maternal Occupation Group", type: "select", default: "3", options: [
+            ["0", "0 = Not working"], ["1", "1 = Professional/technical/managerial"], ["2", "2 = Clerical"], ["3", "3 = Sales"],
+            ["4", "4 = Agricultural - self employed"], ["6", "6 = Household/domestic"], ["7", "7 = Services"], ["8", "8 = Skilled manual"], ["9", "9 = Unskilled manual"]
+          ]},
+          { code: "v701", name: "partner_education_level", label: "C6. Partner's Highest Education Level", type: "select", default: "2", options: [
+            ["0", "0 = No education"], ["1", "1 = Primary"], ["2", "2 = Secondary"], ["3", "3 = Higher"], ["8", "8 = Don't know"]
+          ]},
+          { code: "v743a", name: "decision_maker_maternal_healthcare", label: "C10. Who Usually Makes Decisions About Your Healthcare?", type: "select", default: "2", options: [
+            ["1", "1 = Respondent alone"], ["2", "2 = Respondent and partner jointly"], ["3", "3 = Partner alone"], ["4", "4 = Someone else"]
+          ]},
+          { code: "v157", name: "media_newspaper_frequency", label: "C11. Reads Newspaper/Magazine", type: "select", default: "0", options: [["0", "0 = Not at all"], ["1", "1 = Less than once a week"], ["2", "2 = At least once a week"]] },
+          { code: "v158", name: "media_radio_frequency", label: "C12. Listens to Radio", type: "select", default: "1", options: [["0", "0 = Not at all"], ["1", "1 = Less than once a week"], ["2", "2 = At least once a week"]] },
+          { code: "v159", name: "media_tv_frequency", label: "C13. Watches Television", type: "select", default: "1", options: [["0", "0 = Not at all"], ["1", "1 = Less than once a week"], ["2", "2 = At least once a week"]] },
+          { code: "v169a", name: "owns_mobile_phone", label: "C14. Owns a Mobile Phone?", type: "select", default: "1", options: YES_NO },
+          { code: "v171a", name: "use_of_internet", label: "C15. Use of Internet", type: "select", default: "1", options: [["0", "0 = Never"], ["1", "1 = Yes, last 12 months"], ["2", "2 = Yes, before last 12 months"]] },
+          { code: "hfs1", name: "fies_worried_not_enough_food", label: "C16. FIES: Worried would not have enough food?", type: "select", default: "1", options: YES_NO_DK },
+          { code: "hfs4", name: "fies_had_to_skip_a_meal", label: "C19. FIES: Had to skip a meal due to lack of money?", type: "select", default: "0", options: YES_NO_DK },
+          { code: "hfs7", name: "fies_hungry_but_did_not_eat", label: "C22. FIES: Hungry but did not eat?", type: "select", default: "0", options: YES_NO_DK },
+          { code: "hfs8", name: "fies_went_without_eating_for_whole_day", label: "C23. FIES: Went without eating for a whole day?", type: "select", default: "0", options: YES_NO_DK }
+        ]
+      },
+      {
+        title: "SECTION D: Household & Environmental Risk Factors (Mosquito Breeding & Housing)",
+        fields: [
+          { code: "v113", name: "drinking_water_source", label: "D1. Main Source of Drinking Water", type: "select", default: "21", options: [
+            ["11", "11 = Piped into dwelling"], ["14", "14 = Public tap/standpipe"], ["21", "21 = Tube well or borehole"],
+            ["31", "31 = Protected well"], ["32", "32 = Unprotected well"], ["43", "43 = River/stream/pond"], ["72", "72 = Sachet water"]
+          ]},
+          { code: "v115", name: "time_to_water_source_mins", label: "D2. Time to Water Source (minutes; 996 = On premises)", type: "number", default: "15" },
+          { code: "hv237", name: "anything_done_to_water_to_make_safe_to_drink", label: "D3. Anything done to water to make safe to drink?", type: "select", default: "0", options: YES_NO_DK },
+          { code: "v116", name: "toilet_facility_type", label: "D4. Toilet Facility Type", type: "select", default: "12", options: [
+            ["11", "11 = Flush to piped sewer"], ["12", "12 = Flush to septic tank"], ["21", "21 = VIP latrine"],
+            ["22", "22 = Pit latrine with slab"], ["23", "23 = Open pit latrine"], ["31", "31 = No facility / bush / field"]
+          ]},
+          { code: "v160", name: "toilet_shared_with_other_households", label: "D5. Toilet Shared with Other Households?", type: "select", default: "1", options: YES_NO },
+          { code: "v119", name: "household_has_electricity", label: "D6. Household Has Electricity?", type: "select", default: "1", options: YES_NO },
+          { code: "v127", name: "main_floor_material", label: "D7. Main Floor Material", type: "select", default: "34", options: [
+            ["11", "11 = Earth/sand"], ["33", "33 = Ceramic tiles"], ["34", "34 = Cement"], ["35", "35 = Carpet"]
+          ]},
+          { code: "v128", name: "main_wall_material", label: "D8. Main Exterior Wall Material", type: "select", default: "31", options: [
+            ["12", "12 = Cane/palm/trunks"], ["13", "13 = Dirt/mud"], ["31", "31 = Cement"], ["34", "34 = Cement blocks"], ["33", "33 = Bricks"]
+          ]},
+          { code: "v129", name: "main_roof_material", label: "D9. Main Roof Material", type: "select", default: "31", options: [
+            ["12", "12 = Thatch/palm leaf"], ["31", "31 = Metal / Zinc / Corrugated iron"], ["33", "33 = Calamine/cement fiber"], ["35", "35 = Cement"]
+          ]},
+          { code: "v161", name: "type_of_cooking_fuel", label: "D10. Main Type of Cooking Fuel", type: "select", default: "8", options: [
+            ["1", "1 = Electricity"], ["2", "2 = LPG/cooking gas"], ["5", "5 = Kerosene"], ["7", "7 = Charcoal"], ["8", "8 = Wood/firewood"]
+          ]},
+          { code: "v136", name: "total_household_members", label: "D12. Total Household Members", type: "number", default: "5" },
+          { code: "v137", name: "children_under_5_in_household", label: "D13. Children Under 5 in Household", type: "number", default: "1" },
+          { code: "hv216", name: "number_of_rooms_used_for_sleeping", label: "D14. Number of Rooms Used for Sleeping", type: "number", default: "2" },
+          { code: "hv246", name: "household_owns_livestock_herds_or_farm_animals", label: "D18. Household Owns Livestock/Poultry?", type: "select", default: "0", options: YES_NO },
+          { code: "hv252", name: "frequency_household_members_smoke_inside_house", label: "D19. Frequency of Smoking Inside House (0=Never, 1=Daily)", type: "number", default: "0" }
+        ]
+      },
+      {
+        title: "SECTION E: Obstetric & Pregnancy History",
+        fields: [
+          { code: "pord", name: "pregnancy_order_number", label: "E1. Pregnancy Order Number (Gravidity Order; 1 = Primigravida)", type: "number", default: "1" },
+          { code: "v201", name: "parity_total_children_ever_born", label: "E3. Total Children Ever Born (Parity)", type: "number", default: "1" },
+          { code: "v218", name: "number_of_living_children", label: "E4. Number of Living Children", type: "number", default: "1" },
+          { code: "v212", name: "age_at_first_birth", label: "E5. Age at First Birth (years)", type: "number", default: "22" },
+          { code: "v246", name: "total_pregnancy_history_entries", label: "E7. Total Pregnancies Ever Experienced", type: "number", default: "1" },
+          { code: "v228", name: "ever_had_terminated_pregnancy", label: "E8. Ever Had a Terminated Pregnancy (Miscarriage/Stillbirth/Abortion)?", type: "select", default: "0", options: YES_NO },
+          { code: "v245", name: "number_of_pregnancy_losses", label: "E9. Total Number of Prior Pregnancy Losses", type: "number", default: "0" },
+          { code: "p0", name: "multiple_or_twin_pregnancy", label: "E10. Single or Multiple Pregnancy (0=Single, 1=1st Twin, 2=2nd Twin)", type: "number", default: "0" },
+          { code: "p11", name: "preceding_pregnancy_interval_months", label: "E11. Preceding Pregnancy Interval (months; blank if 1st pregnancy)", type: "number", default: "" },
+          { code: "m17", name: "delivery_by_caesarean_section", label: "E18. Delivered by Caesarean Section (C-Section)?", type: "select", default: "0", options: YES_NO },
+          { code: "p1", name: "month_of_pregnancy_outcome", label: "E19. Month Pregnancy Ended (1=Jan .. 12=Dec; 4-10 = Rainy Season)", type: "number", default: "7" },
+          { code: "p2", name: "year_of_pregnancy_outcome", label: "E20. Year Pregnancy Ended", type: "number", default: "2025" },
+          { code: "p4", name: "sex_of_child", label: "E24. Sex of Child", type: "select", default: "1", options: [["1", "1 = Male"], ["2", "2 = Female"]] }
+        ]
+      },
+      {
+        title: "SECTION F: Antenatal Care (ANC) Utilization, Delivery & Healthcare Access",
+        fields: [
+          { code: "m14", name: "number_of_anc_visits", label: "F1. Number of ANC Visits During This Pregnancy (0 = None)", type: "number", default: "4" },
+          { code: "m13", name: "timing_first_anc_visit_months", label: "F4. Gestational Month at First ANC Visit (1–9)", type: "number", default: "3" },
+          { code: "m2a", name: "anc_provider_doctor", label: "F6. ANC Provider: Doctor?", type: "select", default: "0", options: YES_NO },
+          { code: "m2b", name: "anc_provider_nurse_midwife", label: "F7. ANC Provider: Nurse / Midwife?", type: "select", default: "1", options: YES_NO },
+          { code: "m2c", name: "anc_provider_chew", label: "F8. ANC Provider: Community Health Extension Worker (CHEW)?", type: "select", default: "0", options: YES_NO },
+          { code: "m2g", name: "anc_provider_traditional_birth_attendant", label: "F9. ANC Provider: Traditional Birth Attendant (TBA)?", type: "select", default: "0", options: YES_NO },
+          { code: "m2h", name: "anc_provider_auxiliary_midwife", label: "F10. ANC Provider: Auxiliary Midwife?", type: "select", default: "0", options: YES_NO },
+          { code: "m2n", name: "anc_provider_no_one", label: "F11. ANC Provider: No One?", type: "select", default: "0", options: YES_NO },
+          { code: "m1", name: "tetanus_injections_before_birth", label: "F13. Tetanus Injections During This Pregnancy", type: "number", default: "2" },
+          { code: "m45", name: "iron_tablets_or_syrup_taken", label: "F15. Took Iron Tablets or Syrup During Pregnancy?", type: "select", default: "1", options: YES_NO_DK },
+          { code: "m46", name: "days_iron_tablets_or_syrup_taken", label: "F16. Number of Days Iron Tablets/Syrup Taken", type: "number", default: "60" },
+          { code: "m60", name: "intestinal_parasite_drugs_during_pregnancy", label: "F17. Took Intestinal Worm/Parasite Drugs During Pregnancy?", type: "select", default: "0", options: YES_NO_DK },
+          { code: "m15", name: "place_of_delivery", label: "F19. Place of Delivery", type: "select", default: "24", options: [
+            ["11", "11 = Respondent's home"], ["21", "21 = Teaching hospital"], ["23", "23 = General hospital"],
+            ["24", "24 = Primary Health Care Center (PHC)"], ["31", "31 = Private hospital/clinic"], ["41", "41 = Faith-based hospital"]
+          ]},
+          { code: "v481", name: "covered_by_health_insurance", label: "F25. Covered by Health Insurance?", type: "select", default: "0", options: YES_NO },
+          { code: "v483a", name: "minutes_to_nearest_healthcare_facility", label: "F26. Travel Time to Nearest Health Facility (minutes)", type: "number", default: "25" },
+          { code: "v467b", name: "barrier_getting_permission_to_go", label: "F28. Barrier: Getting Permission to Go", type: "select", default: "2", options: [["1", "1 = Big problem"], ["2", "2 = Not a big problem"]] },
+          { code: "v467c", name: "barrier_getting_money_for_treatment", label: "F29. Barrier: Getting Money for Treatment", type: "select", default: "1", options: [["1", "1 = Big problem"], ["2", "2 = Not a big problem"]] },
+          { code: "v467d", name: "barrier_distance_to_health_facility", label: "F30. Barrier: Distance to Health Facility", type: "select", default: "2", options: [["1", "1 = Big problem"], ["2", "2 = Not a big problem"]] },
+          { code: "v467f", name: "barrier_not_wanting_to_go_alone", label: "F31. Barrier: Not Wanting to Go Alone", type: "select", default: "2", options: [["1", "1 = Big problem"], ["2", "2 = Not a big problem"]] }
+        ]
+      },
+      {
+        title: "SECTION G: Malaria Prophylaxis (IPTp-SP), Vector Control (ITN/LLIN) & Diagnosis",
+        fields: [
+          { code: "m49a", name: "malaria_iptp_sp_fansidar_during_pregnancy", label: "G1. Took SP / Fansidar (IPTp) During Pregnancy to Prevent Malaria?", type: "select", default: "1", options: YES_NO_DK },
+          { code: "ml1", name: "number_of_times_took_fansidar_iptp", label: "G2. Number of Doses of SP / Fansidar Taken (WHO optimal >= 3)", type: "number", default: "2" },
+          { code: "ml2", name: "source_of_antimalarial_during_pregnancy", label: "G3. Source of SP / Fansidar", type: "select", default: "1", options: [
+            ["1", "1 = Antenatal (ANC) visit"], ["2", "2 = Other health facility visit"], ["3", "3 = CHEW"], ["6", "6 = Other / Pharmacy"]
+          ]},
+          { code: "v459", name: "household_has_mosquito_bed_net", label: "G7. Household Owns Any Mosquito Bed Net?", type: "select", default: "1", options: YES_NO },
+          { code: "hml1", name: "number_of_mosquito_bed_nets_in_hh", label: "G8. Number of Mosquito Bed Nets Owned by Household", type: "number", default: "2" },
+          { code: "v461", name: "maternal_slept_under_mosquito_net", label: "G9. Mother Slept Under a Mosquito Bed Net Last Night?", type: "select", default: "1", options: YES_NO },
+          { code: "ml101", name: "maternal_type_of_mosquito_bed_net", label: "G10. Type of Mosquito Net Mother Slept Under", type: "select", default: "1", options: [
+            ["0", "0 = No net"], ["1", "1 = Only insecticide-treated net (ITN)"], ["2", "2 = Both treated and untreated"], ["3", "3 = Only untreated net"]
+          ]},
+          { code: "hml10", name: "net_used_was_insecticide_treated_itn", label: "G11. Net Used Was an Insecticide-Treated Net (ITN)?", type: "select", default: "1", options: YES_NO },
+          { code: "hml12", name: "person_type_of_mosquito_bed_net_slept_under", label: "G13. Household Roster Net Type (0=None, 1=ITN)", type: "number", default: "1" },
+          { code: "hml20", name: "person_slept_under_llin_net", label: "G15. Slept Under Long-Lasting Insecticidal Net (LLIN)?", type: "select", default: "1", options: YES_NO },
+          { code: "ml501", name: "seen_or_heard_malaria_messages_last_6m", label: "G21. Seen or Heard Malaria Messages in Past 6 Months?", type: "select", default: "1", options: YES_NO },
+          { code: "ml503", name: "knows_ways_to_avoid_getting_malaria", label: "G23. Knows Ways to Avoid Getting Malaria?", type: "select", default: "1", options: YES_NO },
+          { code: "ml505", name: "community_gets_malaria_in_rainy_season_perception", label: "G25. Perception: People in Community Get Malaria Almost Every Week in Rainy Season?", type: "select", default: "1", options: AGREE_DK },
+          { code: "h22", name: "child_fever_last_2_weeks", label: "G35. Child Had Fever in Last 2 Weeks?", type: "select", default: "0", options: YES_NO_DK },
+          { code: "h47", name: "child_blood_taken_from_finger_heel_for_testing", label: "G37. Blood Taken for Malaria RDT/Microscopy Testing?", type: "select", default: "0", options: YES_NO_DK },
+          { code: "h71", name: "told_child_had_malaria_diagnosis", label: "G38. Healthcare Provider Diagnosed Malaria?", type: "select", default: "0", options: YES_NO_DK },
+          { code: "h37e", name: "child_took_act_for_fever", label: "G39f. Treated with Artemisinin-based Combination Therapy (ACT)?", type: "select", default: "0", options: YES_NO_DK }
+        ]
+      },
+      {
+        title: "SECTION H: Clinical Screening, Anthropometry, Biomarkers & Comorbidities",
+        fields: [
+          { code: "m42c", name: "anc_blood_pressure_taken", label: "H1. ANC Screening: Blood Pressure Measured?", type: "select", default: "1", options: YES_NO_DK },
+          { code: "m42d", name: "anc_urine_sample_taken", label: "H2. ANC Screening: Urine Sample Taken?", type: "select", default: "1", options: YES_NO_DK },
+          { code: "m42e", name: "anc_blood_sample_taken", label: "H3. ANC Screening: Blood Sample Taken?", type: "select", default: "1", options: YES_NO_DK },
+          { code: "m42f", name: "anc_listened_to_baby_heartbeat", label: "H4. ANC Screening: Listened to Baby's Heartbeat?", type: "select", default: "1", options: YES_NO_DK },
+          { code: "m42i", name: "anc_asked_about_vaginal_bleeding", label: "H5. ANC Screening: Asked About Vaginal Bleeding?", type: "select", default: "1", options: YES_NO_DK },
+          { code: "v176", name: "self_reported_health_status", label: "H6. Self-Reported Health Status (1=Very good .. 5=Very bad)", type: "select", default: "2", options: [
+            ["1", "1 = Very good"], ["2", "2 = Good"], ["3", "3 = Moderate"], ["4", "4 = Bad"], ["5", "5 = Very bad"]
+          ]},
+          { code: "v437", name: "maternal_weight_kg_1dec", label: "H7. Maternal Weight (kg x 10, e.g., 60.5 kg = 605)", type: "number", default: "605" },
+          { code: "v438", name: "maternal_height_cm_1dec", label: "H8. Maternal Height (cm x 10, e.g., 160.0 cm = 1600)", type: "number", default: "1600" },
+          { code: "v445", name: "maternal_bmi_2dec", label: "H9. Maternal BMI x 100 (e.g., 23.63 = 2363)", type: "number", default: "2363" },
+          { code: "v453", name: "maternal_hemoglobin_g_dl_1dec", label: "H12. Maternal Unadjusted Hemoglobin (g/dL x 10, e.g., 10.4 g/dL = 104)", type: "number", default: "104" },
+          { code: "v456", name: "maternal_hemoglobin_altitude_smoking_adj", label: "H14. Maternal Adjusted Hemoglobin (g/dL x 10, e.g., 10.4 = 104)", type: "number", default: "104" },
+          { code: "chd02", name: "ever_told_has_high_blood_pressure_hypertension", label: "H19. Comorbidity: Diagnosed with Hypertension / High Blood Pressure?", type: "select", default: "0", options: YES_NO },
+          { code: "chd07", name: "ever_told_has_high_blood_sugar_diabetes", label: "H24. Comorbidity: Diagnosed with Diabetes / High Blood Sugar?", type: "select", default: "0", options: YES_NO },
+          { code: "s1112ga", name: "tested_for_hepatitis_b_during_anc", label: "H28. Tested for Hepatitis B During ANC?", type: "select", default: "1", options: YES_NO_DK },
+          { code: "s1112ha", name: "hepatitis_b_test_result_anc", label: "H29. ANC Hepatitis B Result (0=Negative, 1=Positive, 5=Not tested)", type: "number", default: "0" },
+          { code: "s1112gb", name: "tested_for_hepatitis_c_during_anc", label: "H30. Tested for Hepatitis C During ANC?", type: "select", default: "1", options: YES_NO_DK },
+          { code: "s1112hb", name: "hepatitis_c_test_result_anc", label: "H31. ANC Hepatitis C Result (0=Negative, 1=Positive, 5=Not tested)", type: "number", default: "0" },
+          { code: "v781", name: "ever_been_tested_for_hiv", label: "H34. Ever Tested for HIV?", type: "select", default: "1", options: YES_NO },
+          { code: "v861", name: "result_of_last_hiv_test", label: "H38. Result of Last HIV Test (1=Positive, 2=Negative)", type: "select", default: "2", options: [["1", "1 = Positive"], ["2", "2 = Negative"], ["3", "3 = Indeterminate"]] },
+          { code: "d118y", name: "did_not_experience_physical_violence_during_pregnancy", label: "H43. Experienced Physical Violence During Pregnancy?", type: "select", default: "1", options: [
+            ["0", "0 = Yes (Experienced physical violence during pregnancy)"],
+            ["1", "1 = No (Did NOT experience physical violence during pregnancy)"]
+          ]}
+        ]
+      },
+      {
+        title: "SECTION I: Pregnancy & Maternal Outcomes (Target Variables for EBM)",
+        fields: [
+          { code: "p30", name: "pregnancy_outcome_declared", label: "I1. Declared Pregnancy Outcome", type: "select", default: "1", options: [
+            ["1", "1 = Born alive"], ["2", "2 = Born dead (Stillbirth)"], ["3", "3 = Miscarriage"], ["4", "4 = Induced abortion"]
+          ]},
+          { code: "p31", name: "baby_cried_moved_or_breathed", label: "I2. Baby Cried, Moved, or Breathed at Birth?", type: "select", default: "1", options: YES_NO },
+          { code: "p32", name: "pregnancy_outcome_reclassified", label: "I3. Final Reclassified Pregnancy Outcome", type: "select", default: "1", options: [
+            ["1", "1 = Born alive (Live birth)"], ["2", "2 = Born dead (Stillbirth >= 7m)"], ["3", "3 = Miscarriage (< 7m)"], ["4", "4 = Abortion"]
+          ]},
+          { code: "p20", name: "pregnancy_duration_months", label: "I5. Gestational Duration at Outcome (months; < 9 = Preterm)", type: "number", default: "9" },
+          { code: "m19", name: "birth_weight_grams_3dec", label: "I6. Infant Birth Weight in Grams (< 2500 = Low Birth Weight)", type: "number", default: "2900" },
+          { code: "m18", name: "child_size_at_birth", label: "I9. Child Size at Birth (4=Smaller than average, 5=Very small)", type: "select", default: "3", options: [
+            ["1", "1 = Very large"], ["2", "2 = Larger than average"], ["3", "3 = Average"], ["4", "4 = Smaller than average"], ["5", "5 = Very small"]
+          ]},
+          { code: "p5", name: "child_is_alive", label: "I10. Is Child Currently Alive?", type: "select", default: "1", options: YES_NO },
+          { code: "p6", name: "child_age_at_death_coded", label: "I11. Child Age at Death if Deceased (100=Day 0, 101-130=Neonatal 1-30 days)", type: "number", default: "" },
+          { code: "v457", name: "maternal_anemia_level", label: "I13. Maternal Anemia Severity Level", type: "select", default: "3", options: [
+            ["1", "1 = Severe anemia"], ["2", "2 = Moderate anemia"], ["3", "3 = Mild anemia"], ["4", "4 = Not anemic"]
+          ]},
+          { code: "hw57", name: "child_anemia_level", label: "I14. Child Anemia Severity Level", type: "select", default: "4", options: [
+            ["1", "1 = Severe anemia"], ["2", "2 = Moderate anemia"], ["3", "3 = Mild anemia"], ["4", "4 = Not anemic"]
+          ]}
+        ]
+      }
+    ];
+
+    const savedRecords = [];
+
+    function renderForm() {
+      const container = document.getElementById("formSections");
+      let html = "";
+      for (const sec of SECTIONS) {
+        html += `<div class="section-banner">${sec.title}</div><div class="section-card">`;
+        for (const f of sec.fields) {
+          html += `<div class="q-group">
+            <label class="q-label" for="field_${f.code}">
+              <span class="q-code">${f.code}</span>${f.label}
+            </label>
+            <div class="q-help">Feature name: <code>${f.name}</code></div>`;
+          if (f.type === "select") {
+            html += `<select id="field_${f.code}" name="${f.code}">`;
+            for (const [val, text] of f.options) {
+              const sel = val === f.default ? "selected" : "";
+              html += `<option value="${val}" ${sel}>${text}</option>`;
+            }
+            html += `</select>`;
+          } else {
+            html += `<input type="${f.type}" id="field_${f.code}" name="${f.code}" value="${f.default || ""}" />`;
+          }
+          html += `</div>`;
+        }
+        html += `</div>`;
+      }
+      container.innerHTML = html;
+    }
+
+    function collectCurrentRow() {
+      const row = {};
+      for (const sec of SECTIONS) {
+        for (const f of sec.fields) {
+          const el = document.getElementById("field_" + f.code);
+          row[f.code] = el ? el.value.trim() : "";
+        }
+      }
+      // Compute the 31 Engineered Features & Targets automatically
+      const v024 = Number(row.v024);
+      const sstate = Number(row.sstate);
+      const pord = Number(row.pord);
+      const p11 = row.p11 !== "" ? Number(row.p11) : null;
+      const m14 = row.m14 !== "" ? Number(row.m14) : null;
+      const m13 = row.m13 !== "" ? Number(row.m13) : null;
+      const m49a = Number(row.m49a);
+      const ml1 = row.ml1 !== "" ? Number(row.ml1) : 0;
+      const ml101 = Number(row.ml101);
+      const hml12 = Number(row.hml12);
+      const hml20 = Number(row.hml20);
+      const v445 = row.v445 !== "" ? Number(row.v445) : null;
+      const v456 = row.v456 !== "" ? Number(row.v456) : null;
+      const p1 = Number(row.p1);
+      const p32 = Number(row.p32);
+      const p20 = row.p20 !== "" ? Number(row.p20) : null;
+      const m19 = row.m19 !== "" ? Number(row.m19) : null;
+      const m18 = row.m18 !== "" ? Number(row.m18) : null;
+      const p5 = row.p5 !== "" ? Number(row.p5) : null;
+      const p6 = row.p6 !== "" ? Number(row.p6) : null;
+      const v457 = row.v457 !== "" ? Number(row.v457) : null;
+
+      row.is_south_south_zone = v024 === 5 ? 1 : 0;
+      row.is_akwa_ibom_state = sstate === 30 ? 1 : 0;
+      row.is_primigravida = pord === 1 ? 1 : 0;
+      row.short_pregnancy_interval_under_24m = (p11 !== null && p11 < 24) ? 1 : 0;
+      row.anc_4plus_visits = (m14 !== null && m14 >= 4 && m14 <= 90) ? 1 : 0;
+      row.anc_8plus_visits = (m14 !== null && m14 >= 8 && m14 <= 90) ? 1 : 0;
+      row.anc_first_trimester = (m13 !== null && m13 >= 1 && m13 <= 3) ? 1 : 0;
+      row.anc_any_skilled_provider = (row.m2a === "1" || row.m2b === "1" || row.m2h === "1") ? 1 : 0;
+      row.malaria_iptp_sp_taken = m49a === 1 ? 1 : 0;
+      row.malaria_iptp_doses = m49a === 0 ? 0 : ml1;
+      row.malaria_iptp_optimal_3plus = (row.malaria_iptp_doses >= 3 && row.malaria_iptp_doses <= 90) ? 1 : 0;
+      row.malaria_itn_slept_last_night = (ml101 === 1 || ml101 === 2 || hml12 === 1 || hml12 === 2) ? 1 : 0;
+      row.malaria_llin_slept_last_night = hml20 === 1 ? 1 : 0;
+      row.malaria_unprotected_in_pregnancy = (row.malaria_iptp_optimal_3plus === 0 && row.malaria_itn_slept_last_night === 0) ? 1 : 0;
+      row.maternal_bmi_kg_m2 = (v445 !== null && v445 >= 1000 && v445 <= 6000) ? (v445 / 100.0).toFixed(2) : "";
+      row.maternal_underweight_bmi_under_18_5 = (row.maternal_bmi_kg_m2 !== "" && Number(row.maternal_bmi_kg_m2) < 18.5) ? 1 : 0;
+      row.maternal_hemoglobin_g_dl = (v456 !== null && v456 >= 20 && v456 <= 250) ? (v456 / 10.0).toFixed(1) : "";
+      row.pregnancy_outcome_rainy_season = (p1 >= 4 && p1 <= 10) ? 1 : 0;
+
+      // Targets
+      row.target_stillbirth = p32 === 2 ? 1 : 0;
+      row.target_pregnancy_loss = (p32 === 2 || p32 === 3 || p32 === 4) ? 1 : 0;
+      row.target_preterm_birth = (p20 !== null && p20 < 9) ? 1 : 0;
+      row.target_preterm_delivery = ((p32 === 1 || p32 === 2) && p20 !== null && p20 < 9) ? 1 : 0;
+      row.birth_weight_kg = (m19 !== null && m19 >= 200 && m19 <= 9000) ? (m19 / 1000.0).toFixed(3) : "";
+      row.target_lbw_measured = (m19 !== null && m19 < 2500) ? 1 : (m19 !== null && m19 <= 9000 ? 0 : "");
+      row.target_low_birth_weight_or_small_size = ((m19 !== null && m19 < 2500) || m18 === 4 || m18 === 5) ? 1 : 0;
+      row.target_neonatal_death = (p32 === 1 && p5 === 0 && p6 !== null && p6 >= 100 && p6 <= 130) ? 1 : 0;
+      row.target_perinatal_mortality = (p32 === 2 || (p32 === 1 && p5 === 0 && p6 !== null && p6 >= 100 && p6 <= 107)) ? 1 : 0;
+      row.target_maternal_anemia = (v457 === 1 || v457 === 2 || v457 === 3) ? 1 : 0;
+      row.target_maternal_moderate_severe_anemia = (v457 === 1 || v457 === 2) ? 1 : 0;
+      row.target_any_adverse_pregnancy_outcome = (
+        row.target_pregnancy_loss === 1 ||
+        row.target_preterm_birth === 1 ||
+        row.target_low_birth_weight_or_small_size === 1 ||
+        row.target_neonatal_death === 1
+      ) ? 1 : 0;
+      row.target_any_apo_or_maternal_anemia = (
+        row.target_any_adverse_pregnancy_outcome === 1 ||
+        row.target_maternal_anemia === 1
+      ) ? 1 : 0;
+
+      return row;
+    }
+
+    function addRecordToBatch() {
+      const row = collectCurrentRow();
+      savedRecords.push(row);
+      document.getElementById("recordCountLabel").textContent = `${savedRecords.length} record(s) saved in session`;
+      const box = document.getElementById("summaryBox");
+      box.style.display = "block";
+      box.innerHTML = `<strong>Saved Respondent <code>${row.caseid}</code>:</strong>
+        IPTp-SP Doses = <code>${row.malaria_iptp_doses}</code> |
+        ITN Used = <code>${row.malaria_itn_slept_last_night}</code> |
+        Composite Fetal/Neonatal APO (<code>target_any_adverse_pregnancy_outcome</code>) = <code>${row.target_any_adverse_pregnancy_outcome}</code> |
+        Maternal Anemia (<code>target_maternal_anemia</code>) = <code>${row.target_maternal_anemia}</code>`;
+    }
+
+    function exportToCSV() {
+      if (savedRecords.length === 0) {
+        addRecordToBatch();
+      }
+      const cols = Object.keys(savedRecords[0]);
+      const lines = [cols.join(",")];
+      for (const r of savedRecords) {
+        const vals = cols.map(c => {
+          const v = r[c] !== undefined && r[c] !== null ? String(r[c]) : "";
+          return v.includes(",") ? `"${v}"` : v;
+        });
+        lines.push(vals.join(","));
+      }
+      const blob = new Blob([lines.join("\n")], { type: "text/csv;charset=utf-8;" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "questionnaire_collected_ebm_inputs.csv";
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+
+    renderForm();
+  </script>
+</body>
+</html>
+
